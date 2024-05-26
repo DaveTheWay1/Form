@@ -1,0 +1,28 @@
+body {
+    background-color: lightgrey;
+}
+
+h1 {
+    /* color: white; */
+    text-align: center;
+    margin: 25px;
+}
+
+form {
+    background-color: white;
+    border: solid gray 5px;
+    padding: 25px;
+    padding-bottom: 50px;
+    width: 500px;
+    display: block;
+    margin: 0 auto;
+}
+
+button {
+    float: right;
+}
+
+option,
+select {
+    text-align: right;
+}
