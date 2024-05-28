@@ -12,11 +12,13 @@ letters.forEach(function(letter){
   span.addEventListener('mouseleave', hoverEvent);
 })
 
+let color;
+
 function hoverEvent(e){
   if(e.type==='mouseover'){
     const el = e.target;
     el.style.height = '50px';
-    el.style.color = 'purple';
+    el.style.color = color;
   } else {
     const el = e.target;
     el.style.height = '25px';
@@ -35,11 +37,15 @@ function handleOptionSelection(e){
 
   if(mood === "sad"){
     document.body.style.backgroundImage = "url('images/200.webp')"
+    color = "yellow";
   } else if (mood === "happy"){
     document.body.style.backgroundImage = "url('images/200-1.webp')"
+    color = "purple";
   } else if (mood === 'okay'){
     document.body.style.backgroundImage = "url('images/giphy-1.webp')"
+    color = "orange"
   } else {
     document.body.style.backgroundImage = "url('images/200-2.webp')"
+    color = "yellow"
   }
 }
