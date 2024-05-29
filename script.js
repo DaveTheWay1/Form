@@ -15,16 +15,24 @@ letters.forEach(function(letter){
 let color;
 
 function hoverEvent(e){
-  if(e.type==='mouseover'){
-    const el = e.target;
-    el.style.height = '50px';
-    el.style.color = color;
-  } else {
-    const el = e.target;
-    el.style.height = '25px';
-    el.style.color = 'grey';
+  console.log(e.target.tagName);
+  if (e.target.tagName === "SPAN"){
+    if(e.type==='mouseover'){
+      const element = e.target;
+      element.style.color = color;
+    } else if (e.type==='mouseleave') {
+      const element = e.target;
+      element.style.color = 'black';
+    }
+  } else if (e.target.tagName === "FORM"){
+    if(e.type==='mouseover'){
+      form.style.borderColor = color;
+    } else if (e.type==='mouseleave') {
+      form.style.borderColor = 'black';
+    }
   }
 }
+
 // ****
 
 // * background onchange option
@@ -37,15 +45,25 @@ function handleOptionSelection(e){
 
   if(mood === "sad"){
     document.body.style.backgroundImage = "url('images/200.webp')"
+    form.style.backgroundColor = "orange"
     color = "yellow";
   } else if (mood === "happy"){
     document.body.style.backgroundImage = "url('images/200-1.webp')"
+    form.style.backgroundColor = "lightblue"
     color = "purple";
   } else if (mood === 'okay'){
     document.body.style.backgroundImage = "url('images/giphy-1.webp')"
+    form.style.backgroundColor = "darkyellow"
     color = "orange"
   } else {
     document.body.style.backgroundImage = "url('images/200-2.webp')"
     color = "yellow"
+    form.style.backgroundColor = "darkred"
+    console.log(form.childElementCount);
   }
 }
+
+// * form color
+const form = document.querySelector('form');
+form.addEventListener('mouseover', hoverEvent);
+form.addEventListener('mouseleave', hoverEvent)
